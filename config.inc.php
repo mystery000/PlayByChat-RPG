@@ -19,6 +19,8 @@ $PARAMETERS['info']['webmaster_name'] = 'Webmaster'; //nome e cognome del respon
 $PARAMETERS['info']['webmaster_email'] = 'webmaster@gdrhost.it'; //email ufficiale del webmaster (è visibile in homepage)
 $PARAMETERS['info']['homepage_name'] = 'Homepage'; //nome con il quale si indica la prima pagina visualizzata
 $PARAMETERS['info']['dbadmin_name'] = 'Admin DB'; //nome del responsabile del database
+$PARAMETERS['info']['login'] = 'LOGIN'; //nome del responsabile del database
+$PARAMETERS['info']['signup'] = 'SIGNUP'; //nome del responsabile del database
 /* HELP: I parametri di questa voce compaiono come informazioni sulla homepage. */
 
 ?>
