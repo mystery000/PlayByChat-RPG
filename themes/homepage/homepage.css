@@ -4,25 +4,27 @@
 }
 
 body {
-    font-family: Arial;
+    font-family: Amsterdam;
     margin: 0 20%;
     border: 1px solid black;
     padding: 0;
 }
 
 .header {
-    background-color: black;
     color: white;
-    text-align: center;
     font-size: 2vw;
+    text-align: center;
     padding: 20px;
+    border-bottom: white 1px dotted;
+    background-color: black;
 }
 
 .footer {
-    background-color: black;
     color: white;
     font-size: 2vw;
     padding: 20px;
+    border-top: white 1px dotted;
+    background-color: black;
 }
 
 .footer a {
@@ -30,4 +32,34 @@ body {
     color: white;
 }
 
-.information {}
+.information .text {
+    font-family: Amsterdam;
+    color: white;
+    background-color: black;
+    font-size: x-large;
+    padding-top: 20px;
+    margin: 0;
+}
+
+.hole {
+    text-align: center;
+    position: relative;
+}
+
+.hole img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.hole .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-55%, -50%);
+    font-size: 3vw;
+}
+
+.login .hole .centered {
+    text-decoration: none;
+}

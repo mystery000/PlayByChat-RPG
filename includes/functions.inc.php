@@ -369,6 +369,7 @@ function gdrcd_filter($what, $str)
         case 'fullurl':
             $str = filter_var(str_replace(' ', '%20', $str), FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED);
             break;
+
     }
 
     return $str;
@@ -435,7 +436,7 @@ function gdrcd_html_filter($str)
         "#(javascript:[^\s\"']+)#is" => ""
     ];
 
-    if ($GLOBALS['PARAMETERS']['settings']['html'] == HTML_FILTER_HIGH) {
+    if ($GLOBALS['PARAMETERS']['settings']['html'] == 1) {
         $notAllowed = array_merge($notAllowed, [
             "#(<img.*?\/?>)#is" => "Immagini non consentite",
             "#(url\(.*?\))#is" => "none",
