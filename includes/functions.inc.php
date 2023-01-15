@@ -562,7 +562,7 @@ function gdrcd_check_time($time)
 
 function gdrcd_load_modules($page, $param)
 {  
-    $SESSION_ALLOW = ['home', 'login', 'signup'];
+    $SESSION_ALLOW = ['home', 'login', 'signup', 'contact', 'information'];
     global $MESSAGE;
     global $PARAMETERS;
     // Costruisco i parametri del modulo

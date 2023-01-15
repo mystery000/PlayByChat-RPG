@@ -22,38 +22,30 @@ $content = (!empty($_GET['content'])) ? gdrcd_filter('include', $_GET['content']
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <!-- IE9: mi stai ampiamente rompendo i maroni. -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="themes/homepage/homepage.css" type="text/css"/>
     <title>
         <?php echo $PARAMETERS['info']['site_name']; ?>
     </title>
-    <style>
-    @font-face {
-        font-family: Amsterdam;
-        src: url('fonts/Amsterdam.otf');
-    }
-    body {
-        font-family: Amsterdam;
-    }    
-    </style>
 </head>
 
-<body class="main_body">
-    
-    
-    <?php  
-        // Header 
-        include('pages/homepage/header.php');
-        // Content
-        gdrcd_load_modules($page, $content);
-        // Footer
-        include('pages/homepage/footer.php');
-    ?>
+<body class="main"> 
+    <div>
+        <?php  
+            // Header 
+            include('pages/homepage/header.php');
+            // Content
+            gdrcd_load_modules($page, $content);
+            // Footer
+            include('pages/homepage/footer.php');
+        ?>
+    <div>
 </body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <?php
 /*Chiudo la connessione al database*/
 gdrcd_close_connection($handleDBConnection);
