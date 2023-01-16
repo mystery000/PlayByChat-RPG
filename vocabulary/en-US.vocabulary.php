@@ -19,6 +19,7 @@ $MESSAGE['interface']['page_not_found'] = 'Page not found';
 $MESSAGE['register']['error']['email_taken'] = 'Esiste già un account registrato con questa e-mail.';
 $MESSAGE['register']['error']['email_needed'] = 'Specificare un\'email valida.';
 $MESSAGE['register']['error']['adult_needed'] = "Si prega di controllare l'età"; 
-$MESSAGE['register']['error']['account_needed'] = "Please create your account!";
+$MESSAGE['register']['error']['account_needed'] = "Unregisted User";
 $MESSAGE['register']['error']['account_password'] = "Password is wrong, please try again.";
+$MESSAGE['register']['error']['empty'] = "Name or Password is empty!";
 ?>

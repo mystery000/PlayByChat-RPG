@@ -20,18 +20,30 @@
             </form>
             <div class='error text-danger'>
                 <?php
-                     $name = isset($_POST['name']) ? $_POST['name'] : false;
-                     $password = isset($_POST['password']) ? $_POST['password'] : false;
-                     if($name && $password) {
+         
+                    $name = isset($_POST['name']) ? $_POST['name'] : false;
+                    $password = isset($_POST['password']) ? $_POST['password'] : false;
+                    $name = $name == ''? false : $name;
+                    $password = $password == ''? false : $password;
+                    if(!$name && !$password) {}
+                    else if($name && $password) {
                         $record = gdrcd_query("SELECT * FROM user WHERE name='{$name}'"."LIMIT 1");
                         if(!empty($record) && gdrcd_password_check($password, $record['password'])) {
                             gdrcd_query($rows, 'free');
                             $_SESSION['login'] = gdrcd_filter_in($record['password']);
-                            gdrcd_redirect('index.php?page=homepage&content=home');   
-                                                    
-                        } 
-                     }
-                     
+                            gdrcd_redirect('index.php?page=homepage&content=home');                           
+                        }
+                        if(empty($record)) {
+                            echo gdrcd_filter('out', $MESSAGE['register']['error']['account_needed']);
+                        } else {
+                            echo gdrcd_filter('out', $MESSAGE['register']['error']['password_needed']);
+                        }
+                    } else {
+                        echo gdrcd_filter('out', $MESSAGE['register']['error']['empty']);
+                    }
+                    unset($_POST['name']);
+                    unset($_POST['password']);
+            
                 ?>
             </div>
         </div>

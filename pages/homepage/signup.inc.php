@@ -6,20 +6,22 @@
                 <!-- Email input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="loginName">Email</label>
-                    <input type="email" id="email" name='email' class="form-control" value='<?= isset($_POST['email']) ? $_POST['email'] : ''?>'/>
+                    <input type="email" id="email" name='email' class="form-control" value=''/>
                 </div>
                 <!-- Password input -->
                 <div class="form-outline mb-4">
                     <label class="form-label" for="isAdult">Dichiaro di essere maggiorenne</label><br>
-                    <input class="form-check-input" type="checkbox" id="adult" name='adult' checked=<?= isset($_POST['adult']) ? true : false?>>
+                    <input class="form-check-input" type="checkbox" id="adult" name='adult' />
                 </div>
             </form>
             <div class='error text-danger'>
                 <?php
                      $email = isset($_POST['email']) ? $_POST['email'] : false;
                      $adult = isset($_POST['adult']) ? $_POST['adult'] : false;
-
-                    if($email && $adult){
+                     $email = $email == ''? false : $email;
+                     $adult = $adult == 'on'? true: false;
+                    if(!$email && !$adult) {}
+                    else if($email && $adult){
                         $sql = "SELECT * FROM user WHERE email='{$email}'";
                         $rows = gdrcd_query($sql, "result");
                         if (gdrcd_query($rows, 'num_rows') > 0) {
