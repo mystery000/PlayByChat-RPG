@@ -34,12 +34,12 @@
                             gdrcd_redirect('index.php?page=homepage&content=home');                           
                         }
                         if(empty($record)) {
-                            echo gdrcd_filter('out', $MESSAGE['register']['error']['account_needed']);
+                            echo gdrcd_filter('out', $MESSAGE['login']['error']['account_needed']);
                         } else {
-                            echo gdrcd_filter('out', $MESSAGE['register']['error']['password_needed']);
+                            echo gdrcd_filter('out', $MESSAGE['login']['error']['password_needed']);
                         }
                     } else {
-                        echo gdrcd_filter('out', $MESSAGE['register']['error']['empty']);
+                        echo gdrcd_filter('out', $MESSAGE['login']['error']['empty']);
                     }
                     unset($_POST['name']);
                     unset($_POST['password']);
