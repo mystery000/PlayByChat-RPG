@@ -30,19 +30,33 @@
                      $adult = $adult == 'on'? true: false;
                     if(!$email && !$adult && !$name) {}
                     else if($email && $adult && $name){
-                        $sql = "SELECT * FROM user WHERE email='{$email}'";
-                        $rows = gdrcd_query($sql, "result");
-                        if (gdrcd_query($rows, 'num_rows') > 0) {
-                            gdrcd_query($rows, 'free');
-                            echo gdrcd_filter('out', $MESSAGE['register']['error']['email_taken']);
-                        } else {
-                            $pass = gdrcd_genera_pass();
-                            $pass_encript = gdrcd_encript($pass);
-                            $email_encript = gdrcd_encript($email);
-                            $sql = "INSERT INTO user(email, name, password) VALUES('{$email_encript}','{$name}','$pass_encript')";
-                            gdrcd_query($sql);
-                            gdrcd_redirect("index.php?page=homepage&content=home");
+                        $allow = true;
+                        $result = gdrcd_query("SELECT email FROM user", 'result');
+                        foreach($result as $pg) {
+                            if (gdrcd_password_check($email, $pg['email'])) {
+                                echo gdrcd_filter('out', $MESSAGE['register']['error']['email_taken']);
+                                $allow = false;
+                                break;
+                            }
                         }
+                        if($allow){
+                            $sql = "SELECT * FROM user WHERE name='{$name}'";
+                            $rows = gdrcd_query($sql, "result");
+                            if (gdrcd_query($rows, 'num_rows') > 0) {
+                                gdrcd_query($rows, 'free');
+                                echo gdrcd_filter('out', $MESSAGE['register']['error']['name_taken']);
+                            } else {
+                                $pass = gdrcd_genera_pass();
+                                /*
+                                    send $pass and $name to email address
+                                */
+                                $pass_encript = gdrcd_encript($pass);
+                                $email_encript = gdrcd_encript($email);
+                                $sql = "INSERT INTO user(email, name, password) VALUES('{$email_encript}','{$name}','$pass_encript')";
+                                gdrcd_query($sql);
+                                gdrcd_redirect("index.php?page=homepage&content=home");
+                            }
+                        }                       
                     }
                     else if(!$adult){
                         echo gdrcd_filter('out', $MESSAGE['register']['error']['adult_needed']);

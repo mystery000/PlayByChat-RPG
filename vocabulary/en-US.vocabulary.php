@@ -16,7 +16,8 @@ $MESSAGE['warning']['please_login_again'] = 'To log in again, go back to';
 $MESSAGE['interface']['page_missing'] = 'Page parameter missing';
 $MESSAGE['interface']['page_not_found'] = 'Page not found';
 
-$MESSAGE['register']['error']['email_taken'] = 'Esiste già un account registrato con questa e-mail.';
+$MESSAGE['register']['error']['email_taken'] = 'There is already an account registered with this email';
+$MESSAGE['register']['error']['name_taken'] = 'There is already an account registered with character name';
 $MESSAGE['register']['error']['email_needed'] = 'Specificare un\'email valida.';
 $MESSAGE['register']['error']['adult_needed'] = "Si prega di controllare l'età"; 
 $MESSAGE['register']['error']['empty'] = "Email or Password is empty!";
