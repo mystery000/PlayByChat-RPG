@@ -1,3 +1,7 @@
+<?php 
+
+    
+?>
 <div class='signup'>
     <div class='hole'>
         <img src='imgs/bg.jpg'/>
@@ -17,7 +21,7 @@
                     <input class="form-check-input" type="checkbox" id="adult" name='adult' />
                 </div>
                 <div>
-                    <button type="submit" class="btn btn-primary">Create</button><br>
+                    <button type="submit" class="btn btn-outline-dark">Create</button><br>
                 </div>
             </form>
             <div class='error text-danger'>
@@ -50,10 +54,15 @@
                                 /*
                                     send $pass and $name to email address
                                 */
+                                $subject = "The Experiment - Recording by {$name}";
+                                $content = "Character name: {$name}<br>Password: {$pass}";
+                                $response = gdrcd_send_email($email, $subject, $content);
+
                                 $pass_encript = gdrcd_encript($pass);
                                 $email_encript = gdrcd_encript($email);
                                 $sql = "INSERT INTO user(email, name, password) VALUES('{$email_encript}','{$name}','$pass_encript')";
                                 gdrcd_query($sql);
+                                $_SESSION['login'] = gdrcd_filter_in($email_encript);
                                 gdrcd_redirect("index.php?page=homepage&content=home");
                             }
                         }                       

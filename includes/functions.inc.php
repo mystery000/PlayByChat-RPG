@@ -936,3 +936,34 @@ function gdrcd_brute_debug($args)
     }
     die('FINE');
 }
+
+function gdrcd_send_email($to, $subject, $content) {
+    $url = 'https://api.sendgrid.com/';
+    $headr = array();
+    $headr[] = 'Authorization: Bearer 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';
+    $user = 'esperimento.staff@gmail.com';
+    $pass = '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';
+
+
+    $params = array(
+            'api_user' => $user,
+            'api_key' => $pass,
+            'to' => $to,
+            'subject' => $subject,
+            'fromname' => "Esperimento",
+            'html' => $content,
+            'from' => "esperimento.staff@gmail.com",
+        );
+
+    $request = $url . 'api/mail.send.json';
+    $session = curl_init($request);
+    curl_setopt($session, CURLOPT_POST, true);
+    curl_setopt($session, CURLOPT_POSTFIELDS, $params);
+    curl_setopt($session, CURLOPT_HEADER, false);
+    curl_setopt($session, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+    curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($session, CURLOPT_HTTPHEADER, $headr);
+    $response = curl_exec($session);
+    curl_close($session);
+    return $response;
+}  

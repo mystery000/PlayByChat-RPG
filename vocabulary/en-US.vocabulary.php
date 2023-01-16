@@ -22,6 +22,7 @@ $MESSAGE['register']['error']['email_needed'] = 'Specificare un\'email valida.';
 $MESSAGE['register']['error']['adult_needed'] = "Si prega di controllare l'età"; 
 $MESSAGE['register']['error']['empty'] = "Email or Password is empty!";
 $MESSAGE['login']['error']['account_needed'] = "Unregisted User";
+$MESSAGE['login']['error']['password_needed'] = "Password is wrong, please try again.";
 $MESSAGE['login']['error']['account_password'] = "Password is wrong, please try again.";
 $MESSAGE['login']['error']['empty'] = "Name or Password is empty!";
 ?>
