@@ -954,7 +954,7 @@ function gdrcd_send_email($to, $subject, $content) {
             'html' => $content,
             'from' => "esperimento.staff@gmail.com",
         );
-
+        
     $request = $url . 'api/mail.send.json';
     $session = curl_init($request);
     curl_setopt($session, CURLOPT_POST, true);
