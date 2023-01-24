@@ -35,7 +35,7 @@
                     if(!$email && !$adult && !$name) {}
                     else if($email && $adult && $name){
                         $allow = true;
-                        $result = gdrcd_query("SELECT email FROM user", 'result');
+                        $result = gdrcd_query("SELECT email FROM characters", 'result');
                         foreach($result as $pg) {
                             if (gdrcd_password_check($email, $pg['email'])) {
                                 echo gdrcd_filter('out', $MESSAGE['register']['error']['email_taken']);
@@ -44,7 +44,7 @@
                             }
                         }
                         if($allow){
-                            $sql = "SELECT * FROM user WHERE name='{$name}'";
+                            $sql = "SELECT * FROM characters WHERE name='{$name}'";
                             $rows = gdrcd_query($sql, "result");
                             if (gdrcd_query($rows, 'num_rows') > 0) {
                                 gdrcd_query($rows, 'free');
@@ -60,10 +60,11 @@
 
                                 $pass_encript = gdrcd_encript($pass);
                                 $email_encript = gdrcd_encript($email);
-                                $sql = "INSERT INTO user(email, name, password) VALUES('{$email_encript}','{$name}','$pass_encript')";
+                                $sql = "INSERT INTO characters(email, name, password) VALUES('{$email_encript}','{$name}','$pass_encript')";
                                 gdrcd_query($sql);
-                                $_SESSION['login'] = gdrcd_filter_in($email_encript);
-                                gdrcd_redirect("index.php?page=homepage&content=home");
+                                $_SESSION['login'] = gdrcd_filter_in($name);
+                                $_SESSION['map'] = 1; 
+                                header('Location: main.php?page=mappo&map_id='.$_SESSION['map'], true);
                             }
                         }                       
                     }

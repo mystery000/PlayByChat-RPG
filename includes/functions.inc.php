@@ -561,7 +561,7 @@ function gdrcd_check_time($time)
  * @param array $params : un array di dati aggiuntivi passabili al modulo
  */
 
-function gdrcd_load_modules($page, $param)
+function gdrcd_load_modules($page, $param=[])
 {  
     $SESSION_ALLOW = ['home', 'login', 'signup', 'contact', 'information'];
     global $MESSAGE;
@@ -571,10 +571,11 @@ function gdrcd_load_modules($page, $param)
     
     // Sostituisco i __ con i /
     $page = gdrcd_pages_format($page);
+
     try {
         // Controllo la tipologia di informazione passata (file o page) e poi determino il percorso del modulo
         $modulePath = is_file($page) ? $page : gdrcd_pages_path($page, $MODULE);
-
+        
         if(!file_exists($modulePath)) {
             throw new Exception($MESSAGE['interface']['layout_not_found']);
         }

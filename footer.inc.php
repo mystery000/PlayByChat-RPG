@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+        CONTACT THE VOID
+    </a>
+    <a class="navbar-brand" href="#">
+        FORUM
+    </a>
+  </div>
+</nav>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<?php
+/*Chiudo la connessione al database*/
+gdrcd_close_connection($handleDBConnection);
+
+/**    * Per ottimizzare le risorse impiegate le liberiamo dopo che non ne abbiamo pi� bisogno
+ * @author Blancks
+ */
+unset($MESSAGE);
+unset($PARAMETERS);
+?>

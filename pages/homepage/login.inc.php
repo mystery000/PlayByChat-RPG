@@ -27,11 +27,15 @@
                     $password = $password == ''? false : $password;
                     if(!$name && !$password) {}
                     else if($name && $password) {
-                        $record = gdrcd_query("SELECT * FROM user WHERE name='{$name}'"."LIMIT 1");
+                        $record = gdrcd_query("SELECT * FROM characters WHERE name='{$name}'"."LIMIT 1");
+                        $_SESSION['map'] = (empty($record['latest_map']) === true) ? 1 : $record['latest_map'];
+                        $_SESSION['place'] = (empty($record['last_place']) === true) ? -1 :  $record['last_place'];
+
+                        
                         if(!empty($record) && gdrcd_password_check($password, $record['password'])) {
                             gdrcd_query($rows, 'free');
-                            $_SESSION['login'] = gdrcd_filter_in($record['email']);
-                            gdrcd_redirect('index.php?page=homepage&content=home');                           
+                            $_SESSION['login'] = gdrcd_filter_in($record['name']);
+                            header('Location: main.php?page=mappo&map_id='.$_SESSION['map'], true);                         
                         }
                         if(empty($record)) {
                             echo gdrcd_filter('out', $MESSAGE['login']['error']['account_needed']);
