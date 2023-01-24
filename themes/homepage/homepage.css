@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: Arial;
+    font-family: Amsterdam;
     margin: 0 20%;
     border: 1px solid black;
     padding: 0;
@@ -33,7 +33,7 @@ body {
 }
 
 .information .text {
-    font-family: Arial;
+    font-family: Amsterdam;
     color: white;
     background-color: black;
     font-size: x-large;

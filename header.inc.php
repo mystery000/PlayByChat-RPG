@@ -32,7 +32,7 @@ $handleDBConnection = gdrcd_connect();
       <img src="imgs/img_avatar1.png" alt="Logo" style="width:40px;" class="rounded-pill dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" type="button">
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><a class="dropdown-item" href="#">Logout</a></li>
+        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
       </ul>
     </div>
     <a class="navbar-brand" href="main.php?page=mappo&map_id=<?= $_SESSION['map'] ?>"> Go to Map</a>
