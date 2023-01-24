@@ -6,6 +6,7 @@
  */
 require('header.inc.php'); /*Header comune*/
 
+$page = "";
 $strInnerPage = "";
 
 /** * Bug fix del mapwise: la gestione dello spostamento della mappa va gestita da main e non da mappaclick
@@ -18,17 +19,20 @@ if( ! empty($_GET['map_id'])) {
 
 if(isset($_REQUEST['page'])) {
     $strInnerPage = $_REQUEST['page'];
+    $page = "maps";
 }
 
 //se e' impostato dir allora cambio stanza.
 elseif(isset($_REQUEST['dir']) && is_numeric($_REQUEST['dir'])) {
     if($_REQUEST['dir'] >= 0) {
+        $page = "chat";
         $strInnerPage = 'frame_chat';
     } else {
+        $page = "maps";
         $strInnerPage = 'mappo';
         $_REQUEST['id_map'] = $_SESSION['map'];
     }
-    gdrcd_query("UPDATE characters SET latest_map=".gdrcd_filter('num', $_REQUEST['dir'])." WHERE name='".gdrcd_filter('in', $_SESSION['login'])."'");
+    gdrcd_query("UPDATE characters SET last_place=".gdrcd_filter('num', $_REQUEST['dir'])." WHERE name='".gdrcd_filter('in', $_SESSION['login'])."'");
 }
 
 // /** * Caso di fix
@@ -36,6 +40,7 @@ elseif(isset($_REQUEST['dir']) && is_numeric($_REQUEST['dir'])) {
 //  * @author Blancks
 //  */
 else {
+    $page = "maps";
     $strInnerPage = 'mappo';
     $_REQUEST['id_map'] = $_SESSION['map'];
 }
@@ -44,7 +49,7 @@ else {
 /**    * Fine caso di Fix */
 
 if(isset($_SESSION['login']) === true) {
-    gdrcd_load_modules('maps', $strInnerPage);
+    gdrcd_load_modules($page, $strInnerPage);
 } else {
     gdrcd_load_modules('homepage', 'login');
 }

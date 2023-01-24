@@ -1,0 +1,19 @@
+.mappa {
+    background-color: #b9b9b9;
+}
+
+.mappa .heading {
+    text-align: center;
+}
+
+.mappa-rooms {
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.mappa-rooms .mappa-room a {
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+}

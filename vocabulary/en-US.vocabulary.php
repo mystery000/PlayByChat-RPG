@@ -25,4 +25,5 @@ $MESSAGE['login']['error']['account_needed'] = "Unregisted User";
 $MESSAGE['login']['error']['password_needed'] = "Password is wrong, please try again.";
 $MESSAGE['login']['error']['account_password'] = "Password is wrong, please try again.";
 $MESSAGE['login']['error']['empty'] = "Name or Password is empty!";
+$MESSAGE['error']['can_t_find_any_map'] = 'Nessuna mappa esistente.';
 ?>
