@@ -60,7 +60,7 @@
                                 gdrcd_query($sql);
                                 $_SESSION['login'] = gdrcd_filter_in($name);
                                 $_SESSION['map'] = 1; 
-                            $_SESSION['timeout'] = time();
+                                $_SESSION['timeout'] = time();
                                 header('Location: main.php?page=mappo&map_id='.$_SESSION['map'], true);
                             }
                         }                       
