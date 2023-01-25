@@ -20,13 +20,15 @@
             </div>
         </div>
         <div class="p-2 flex-fill w-50 border-start border-end border-4 main-content">
-            <?php 
-                $sql = "SELECT chat.sender, chat.recipient, chat.text, chat.now FROM chat WHERE room_id={$room}";
-                $chats = gdrcd_query($sql, "result");
-                while($row = gdrcd_query($chats, 'fetch')) {
-                    echo "<div class='fs-4 '><span>{$row['sender']}</span><span class='p-2'>-</span><span class='p-2'>{$row['text']}</span></div>";
-                }
-            ?>
+            <div class='overflow-auto h-100' id="div-scroll">
+                <?php 
+                    $sql = "SELECT chat.sender, chat.recipient, chat.text, chat.now FROM chat WHERE room_id={$room}";
+                    $chats = gdrcd_query($sql, "result");
+                    while($row = gdrcd_query($chats, 'fetch')) {
+                        echo "<div class='fs-4 '><span>{$row['sender']}</span><span class='p-2'>-</span><span class='p-2'>{$row['text']}</span></div>";
+                    }
+                ?>
+            </div>
             <form action="<?= $_SERVER['SCRIPT_NAME'] . '?' . $_SERVER['QUERY_STRING'] ?>" method="post">
                 <div class="input-group mb-1 chat-input">
                     <input type="text" class="form-control" placeholder="Message" name="message">
@@ -50,3 +52,7 @@
     </div>
 
 </div>
+<script>
+    var element = document.getElementById("div-scroll");
+    element.scrollTop = element.scrollHeight-20;
+</script>
