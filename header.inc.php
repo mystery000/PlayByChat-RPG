@@ -4,6 +4,7 @@ header('Content-Type:text/html; charset=UTF-8');
 require_once('includes/required.php');
 //Eseguo la connessione al database
 $handleDBConnection = gdrcd_connect();
+gdrcd_controllo_sessione();
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">

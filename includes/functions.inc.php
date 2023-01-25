@@ -456,9 +456,20 @@ function gdrcd_html_filter($str)
  */
 function gdrcd_controllo_sessione()
 {
+    $timeout = 600; //10 mins in seconds
     if (empty($_SESSION['login'])) {
-        echo '<div class="error">', $GLOBALS['MESSAGE']['error']['session_expired'], '<br />', $GLOBALS['MESSAGE']['warning']['please_login_again'], '<a href="', $GLOBALS['PARAMETERS']['info']['site_url'], '">Homepage</a></div>';
-        die();
+        header("Location: index.php?page=homepage&content=login");
+    }
+    if(isset($_SESSION['timeout'])) {
+        // Check if session timed out
+        $session_time = time() - $_SESSION['timeout'];
+        if($session_time > $timeout) {
+            // If it did, destroy it and probably logout user
+            session_destroy();
+            header("Location: index.php?page=homepage&content=login");
+        }
+    } else {
+        $_SESSION['timeout'] = time();
     }
 }
 
@@ -581,7 +592,9 @@ function gdrcd_load_modules($page, $param=[])
         }
 
         // Includo il modulo
-        if(empty($_SESSION['login']) && !in_array($param, $SESSION_ALLOW)) echo '<div class="error">', $GLOBALS['MESSAGE']['error']['session_expired'], '<br />', $GLOBALS['MESSAGE']['warning']['please_login_again'], '<a href="', $GLOBALS['PARAMETERS']['info']['site_url'], '">Homepage</a></div>';
+        if(empty($_SESSION['login']) && !in_array($param, $SESSION_ALLOW)) {
+            header("Location: index.php?page=homepage&content=login");
+        }
         else include($modulePath);
     }
     catch(Exception $e) {

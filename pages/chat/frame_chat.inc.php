@@ -1,4 +1,5 @@
 <?php
+    gdrcd_controllo_sessione();
     $room = $_REQUEST['dir'];
     $info = gdrcd_query("SELECT mappa_room.name, mappa_room.description, mappa_room.image FROM mappa_room WHERE mappa_room.id={$room} LIMIT 1");
     $result = gdrcd_query("SELECT characters.name, characters.online_status FROM characters WHERE last_place={$room}", 'result');    
@@ -14,7 +15,7 @@
             <div class="image">
                 <img src="imgs/locations/<?= $info['image'] ?>" alt="No Image" class="w-100"/>
             </div>
-            <div class="description p-3">
+            <div class="description p-3 fs-4">
                 <p><?= $info['description'] ?></p>
             </div>
         </div>
@@ -23,7 +24,7 @@
                 $sql = "SELECT chat.sender, chat.recipient, chat.text, chat.now FROM chat WHERE room_id={$room}";
                 $chats = gdrcd_query($sql, "result");
                 while($row = gdrcd_query($chats, 'fetch')) {
-                    echo "<div class='fs-5 '><span>{$row['sender']}</span><span class='p-2'>-</span><span class='p-2'>{$row['text']}</span></div>";
+                    echo "<div class='fs-4 '><span>{$row['sender']}</span><span class='p-2'>-</span><span class='p-2'>{$row['text']}</span></div>";
                 }
             ?>
             <form action="<?= $_SERVER['SCRIPT_NAME'] . '?' . $_SERVER['QUERY_STRING'] ?>" method="post">
@@ -34,7 +35,7 @@
             </form>
         </div>
         <div class="p-2 flex-fill w-25 room-info-right">
-            <p class="text-center fs-4">Players in Chat</p>
+            <p class="text-center fs-3">Players in Chat</p>
             <ul>
                 <?php 
                     while($row = gdrcd_query($result, 'fetch')) {

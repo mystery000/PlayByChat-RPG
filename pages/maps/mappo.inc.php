@@ -1,4 +1,6 @@
-
+<?php 
+    gdrcd_controllo_sessione();
+?>
 <div class="mappa">
     <div class='heading'>
         <h2>Map</h2>

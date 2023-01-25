@@ -1,15 +1,15 @@
 <div class='login'>
     <div class='hole'>
         <img src='imgs/bg.jpg'/>
-        <div class='centered'>
+        <div class='centered w-25 fs-5'>
             <form action="<?php echo $_SERVER['SCRIPT_NAME'] . '?' . $_SERVER['QUERY_STRING']; ?>" id='do_login' method='post'>
                 <!-- Email input -->
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-2">
                     <label class="form-label" for="name">Name</label>
                     <input type="text" id="name" name='name' class="form-control" value='<?= isset($_POST['name']) ? $_POST['name'] : ''?>'/>
                 </div>
                 <!-- Password input -->
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-2">
                     <label class="form-label" for="password">Password</label><br>
                     <input class="form-control" type="password" id="password" name='password' />
                 </div>
