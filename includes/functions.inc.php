@@ -468,9 +468,8 @@ function gdrcd_controllo_sessione()
             session_destroy();
             header("Location: index.php?page=homepage&content=login");
         }
-    } else {
-        $_SESSION['timeout'] = time();
     }
+    $_SESSION['timeout'] = time();
 }
 
 /**

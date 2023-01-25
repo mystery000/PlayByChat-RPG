@@ -34,6 +34,7 @@
                         if(!empty($record) && gdrcd_password_check($password, $record['password'])) {
                             gdrcd_query($rows, 'free');
                             $_SESSION['login'] = gdrcd_filter_in($record['name']);
+                            $_SESSION['timeout'] = time();
                             $sql = "UPDATE characters SET online_status=1 WHERE name='{$_SESSION['login']}'";
                             gdrcd_query($sql);
                             header('Location: main.php?page=mappo&map_id='.$_SESSION['map'], true);                         
