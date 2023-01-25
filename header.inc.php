@@ -17,7 +17,7 @@ gdrcd_controllo_sessione();
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="themes/advanced/main.css" type="text/css" />
-    <link rel="stylesheet" href="themes/advanced/map.css" type="text/css" />
+    <link rel="stylesheet" href="themes/advanced/map.css"  type="text/css" />
     <link rel="stylesheet" href="themes/advanced/chat.css" type="text/css" />
     <title>
         <?php echo $PARAMETERS['info']['site_name']; ?>

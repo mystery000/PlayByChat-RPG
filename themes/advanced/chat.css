@@ -7,8 +7,6 @@
     position: relative;
 }
 
-.main-content .chat-input {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+.inbox {
+    height: 550px;
 }

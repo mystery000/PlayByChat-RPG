@@ -5,7 +5,8 @@
     $result = gdrcd_query("SELECT characters.name, characters.online_status FROM characters WHERE last_place={$room}", 'result');    
 
     if(isset($_POST['message'])) {
-        gdrcd_query("INSERT INTO chat(room_id, sender, text) VALUES({$room}, '{$_SESSION['login']}', '{$_POST['message']}')");
+        $testo = gdrcd_filter('in', $_POST['message']);
+        gdrcd_query("INSERT INTO chat(room_id, sender, text) VALUES({$room}, '{$_SESSION['login']}', '{$testo}')");
     }
 ?>
 
@@ -20,7 +21,7 @@
             </div>
         </div>
         <div class="p-2 flex-fill w-50 border-start border-end border-4 main-content">
-            <div class='overflow-auto h-100' id="div-scroll">
+            <div class='overflow-auto inbox' id="div-scroll">
                 <?php 
                     $sql = "SELECT chat.sender, chat.recipient, chat.text, chat.now FROM chat WHERE room_id={$room}";
                     $chats = gdrcd_query($sql, "result");
@@ -54,5 +55,5 @@
 </div>
 <script>
     var element = document.getElementById("div-scroll");
-    element.scrollTop = element.scrollHeight-20;
+    element.scrollTop = element.scrollHeight;
 </script>
