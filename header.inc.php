@@ -36,7 +36,6 @@ gdrcd_controllo_sessione();
     </div>
     <a class="navbar-brand" href="main.php?page=mappo&map_id=<?= $_SESSION['map'] ?>"> Go to Map</a>
     <a class="navbar-brand" href="#"> Character Sheet</a>
-    <a class="navbar-brand" href="#"> Private Messages</a>
     <a class="navbar-brand" href="#"> Online Players</a>
   </div>
   

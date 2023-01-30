@@ -56,4 +56,5 @@
 <script>
     var element = document.getElementById("div-scroll");
     element.scrollTop = element.scrollHeight;
+    window.scrollTo(0, window.innerHeight);
 </script>
