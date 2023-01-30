@@ -12,7 +12,7 @@
     Sei cieco , sordo , anosmico e ageusico .
     Mentre il panico ti assale , iniziano a farsi strada due ipotesi nella tua mente , 
     spingendoti al limite della follia : sei appena morto o stai nascendo .
-
-                       Benvenuto nella tua nuova esistenza . 
+    
+    Benvenuto nella tua nuova esistenza . 
     </pre>
 </div>

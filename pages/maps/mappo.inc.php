@@ -2,7 +2,7 @@
     gdrcd_controllo_sessione();
 ?>
 <div class="mappa">
-    <div class='heading'>
+    <div class='heading p-3'>
         <h2>Map</h2>
         <h3>Every location is a chat</h3>
     </div>  

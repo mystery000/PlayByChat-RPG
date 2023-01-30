@@ -32,8 +32,8 @@
                         $_SESSION['place'] = (empty($record['last_place']) === true) ? -1 :  $record['last_place'];
                         
                         if(!empty($record) && gdrcd_password_check($password, $record['password'])) {
-                            gdrcd_query($rows, 'free');
                             $_SESSION['login'] = gdrcd_filter_in($record['name']);
+                            $_SESSION['allow'] = gdrcd_filter_in($record['allow']);
                             $_SESSION['timeout'] = time();
                             $sql = "UPDATE characters SET online_status=1 WHERE name='{$_SESSION['login']}'";
                             gdrcd_query($sql);

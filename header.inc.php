@@ -23,21 +23,16 @@ gdrcd_controllo_sessione();
     <title>
         <?php echo $PARAMETERS['info']['site_name']; ?>
     </title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body class="main"> 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <div class="container-fluid">
-    <div class="navbar-brand dropdown">
-      <img src="imgs/img_avatar1.png" alt="Logo" style="width:40px;" class="rounded-pill dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" type="button">
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Profile</a></li>
-        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-      </ul>
-    </div>
-    <a class="navbar-brand" href="mappa.php?page=mappo&map_id=<?= $_SESSION['map'] ?>"> Go to Map</a>
-    <a class="navbar-brand" href="main.php?page=gameinfo&content=character_sheet"> Character Sheet</a>
-    <a class="navbar-brand" href="main.php?page=gameinfo&content=online_players"> Online Players</a>
+  <div class="container-fluid d-flex justify-content-">  
+    <a class="navbar-brand" href="mappa.php?page=mappo&map_id=<?= $_SESSION['map'] ?>">Go to Map</a>
+    <a class="navbar-brand" href="main.php?page=gameinfo&content=character_sheet">Character Sheet</a>
+    <a class="navbar-brand" href="main.php?page=gameinfo&content=online_players">Online Players</a>
+    <a class="navbar-brand" href="logout.php">LOGOUT</a>
   </div>
   
 </nav>

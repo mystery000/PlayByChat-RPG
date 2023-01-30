@@ -4,13 +4,17 @@
 }
 
 body {
-    font-family: Arial;
     margin: 0 20%;
     border: 1px solid black;
     padding: 0;
 }
 
+.main {
+    height: 100vh;
+}
+
 .header {
+    font-family: Amsterdam;
     color: white;
     font-size: 2vw;
     text-align: center;
@@ -20,6 +24,7 @@ body {
 }
 
 .footer {
+    font-family: Amsterdam;
     color: white;
     font-size: 2vw;
     padding: 20px;
@@ -32,13 +37,16 @@ body {
     color: white;
 }
 
+
 .information .text {
-    font-family: Arial;
+    font-family: Amsterdam;
     color: white;
     background-color: black;
     font-size: x-large;
     padding-top: 20px;
     margin: 0;
+    text-align: center;
+    height: 100vh;
 }
 
 .hole {

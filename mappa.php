@@ -49,7 +49,8 @@ else {
 /**    * Fine caso di Fix */
 
 if(isset($_SESSION['login']) === true) {
-    gdrcd_load_modules($page, $strInnerPage);
+    if($_SESSION['allow']) gdrcd_load_modules($page, $strInnerPage);
+    else echo "<div class='text-center text-danger fs-4 p-5'><div>Sorry, you have to get permission from administrator</div><div><a href='main.php?page=gameinfo&content=contact_void'>Please send administrator message to ask for permission.</a></div></div>";
 } else {
     gdrcd_load_modules('homepage', 'login');
 }

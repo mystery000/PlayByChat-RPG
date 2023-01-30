@@ -7,13 +7,11 @@ $content = "";
 
 if(isset($_REQUEST['page'])) {
     $page = $_REQUEST['page'];
-}
+} 
 
 if(isset($_REQUEST['content'])) {
     $content = $_REQUEST['content'];
 }
-
-
 
 if(isset($_SESSION['login']) === true) {
     echo "<div class='gameinfo'>";
