@@ -16,9 +16,10 @@ gdrcd_controllo_sessione();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="imgs/favicon.ico" type="image/png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="themes/advanced/main.css" type="text/css" />
+    <link rel="stylesheet" href="themes/advanced/mappa.css" type="text/css" />
     <link rel="stylesheet" href="themes/advanced/map.css"  type="text/css" />
     <link rel="stylesheet" href="themes/advanced/chat.css" type="text/css" />
+    <link rel="stylesheet" href="themes/advanced/main.css" type="text/css" />
     <title>
         <?php echo $PARAMETERS['info']['site_name']; ?>
     </title>
@@ -34,9 +35,9 @@ gdrcd_controllo_sessione();
         <li><a class="dropdown-item" href="logout.php">Logout</a></li>
       </ul>
     </div>
-    <a class="navbar-brand" href="main.php?page=mappo&map_id=<?= $_SESSION['map'] ?>"> Go to Map</a>
-    <a class="navbar-brand" href="#"> Character Sheet</a>
-    <a class="navbar-brand" href="#"> Online Players</a>
+    <a class="navbar-brand" href="mappa.php?page=mappo&map_id=<?= $_SESSION['map'] ?>"> Go to Map</a>
+    <a class="navbar-brand" href="main.php?page=gameinfo&content=character_sheet"> Character Sheet</a>
+    <a class="navbar-brand" href="main.php?page=gameinfo&content=online_players"> Online Players</a>
   </div>
   
 </nav>

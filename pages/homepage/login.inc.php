@@ -37,7 +37,7 @@
                             $_SESSION['timeout'] = time();
                             $sql = "UPDATE characters SET online_status=1 WHERE name='{$_SESSION['login']}'";
                             gdrcd_query($sql);
-                            header('Location: main.php?page=mappo&map_id='.$_SESSION['map'], true);                         
+                            header('Location: mappa.php?page=mappo&map_id='.$_SESSION['map'], true);                         
                         }
                         if(empty($record)) {
                             echo gdrcd_filter('out', $MESSAGE['login']['error']['account_needed']);

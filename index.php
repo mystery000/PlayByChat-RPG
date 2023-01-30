@@ -38,7 +38,7 @@ $content = (!empty($_GET['content'])) ? gdrcd_filter('include', $_GET['content']
             include('pages/homepage/header.php');
             // Content
             if(isset($_SESSION['login'])) {
-                header('Location: main.php?page=mappo&map_id='.$_SESSION['map'], true);
+                header('Location: mappa.php?page=mappo&map_id='.$_SESSION['map'], true);
             } else {
                 gdrcd_load_modules($page, $content);
             }

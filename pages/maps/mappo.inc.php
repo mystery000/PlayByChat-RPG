@@ -28,7 +28,7 @@
                     $room_id = $row['id'];
                     echo "<div class='mappa-room' style='position: absolute; left: {$x_cord}%; top: {$y_cord}%; text-align: center'>
                         <img src='imgs/maps/{$link_image}' alt='?' style='height: 60px; weight: 60px'/><br>        
-                        <a href='main.php?dir={$room_id}'>{$name}</a>
+                        <a href='mappa.php?dir={$room_id}'>{$name}</a>
                         </div>";
     
                 }
