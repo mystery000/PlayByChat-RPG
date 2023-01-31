@@ -12,6 +12,7 @@ if(isset($_POST['playerId']) && isset($_POST['playerRace']) && isset($_POST['pla
     if(isset($_POST['playerAllow'])) $playerAllow = true;
     $sql = "UPDATE characters SET race='{$playerRace}', allow='{$playerAllow}', dreams='{$playerDream}' WHERE id='{$playerId}'";
     gdrcd_query($sql);
+    $playerAllow = $playerAllow? 1 : 0;
     echo json_encode(array('success' => 1, 'message' => [$playerId, $playerRace, $playerDream, $playerAllow]));
 }
 else if(isset($_POST['txtMemo']) && $_POST['txtMemo']) {
