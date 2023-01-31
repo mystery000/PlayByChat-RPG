@@ -64,8 +64,9 @@
       <div class="modal-body">
         <p class='text-center text-success sheet_playerName'>Player Sheets</p>
         <form id="frm_profile" method='post'>
+          <input type="text" class="playerId d-none" name='playerId'>
           Race: <input type="text" class="form-control sheet_playerRace" name='playerRace'>
-          Dreams and Memories: <textarea class="form-control sheet_playerDream" id="" rows="4" name="playerDream"></textarea>
+          Dreams and Memories: <textarea class="form-control sheet_playerDream" rows="4" name="playerDream"></textarea>
           Permission for Chat and Forum: <input type='checkbox' class='form-check-input sheet_playerAllow' name="playerAllow"/>
         </form>
       </div>
@@ -84,6 +85,7 @@ $('#exampleModal').on('show.bs.modal', function(e) {
   var race = $("#"+playerId).find(".playerRace").text();
   var dream = $("#"+playerId).find(".playerDream").text();
   var allow = $("#"+playerId).find(".playerAllow").text();
+  $('.playerId').val(playerId);
   $('.sheet_playerName').text(name + "'s sheet");
   $('.sheet_playerRace').val(race);
   $('.sheet_playerDream').val(dream);
@@ -98,7 +100,9 @@ $("#frm_profile").submit(function(e) {
     success: function(response) {
       var jsonData = JSON.parse(response);
       if (jsonData.success) {
-         alert(jsonData.message);
+        $("#"+jsonData.message[0]).find(".playerRace").text(jsonData.message[1]);
+        $("#"+jsonData.message[0]).find(".playerDream").text(jsonData.message[2]);
+        $("#"+jsonData.message[0]).find(".playerAllow").text(jsonData.message[3]);
       } 
     }
   });

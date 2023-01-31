@@ -4,13 +4,15 @@ require_once('../../includes/required.php');
 //Eseguo la connessione al database
 $handleDBConnection = gdrcd_connect();
 
-if(isset($_POST['playerRace']) && isset($_POST['playerDream'])) {
+if(isset($_POST['playerId']) && isset($_POST['playerRace']) && isset($_POST['playerDream'])) {
+    $playerId = gdrcd_filter('in', $_POST['playerId']);
     $playerRace = gdrcd_filter('in', $_POST['playerRace']);
     $playerDream = gdrcd_filter('in', $_POST['playerDream']);
     $playerAllow = false;
     if(isset($_POST['playerAllow'])) $playerAllow = true;
-    $SQL = 
-    echo json_encode(array('success' => 1, 'message' => [$playerRace, $playerDream, $playerAllow]));
+    $sql = "UPDATE characters SET race='{$playerRace}', allow='{$playerAllow}', dreams='{$playerDream}' WHERE id='{$playerId}'";
+    gdrcd_query($sql);
+    echo json_encode(array('success' => 1, 'message' => [$playerId, $playerRace, $playerDream, $playerAllow]));
 }
 else if(isset($_POST['txtMemo']) && $_POST['txtMemo']) {
     $memories = gdrcd_filter('in', $_POST['txtMemo']);
