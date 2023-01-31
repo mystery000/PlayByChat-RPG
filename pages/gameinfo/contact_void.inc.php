@@ -5,8 +5,9 @@
     </div>
     <form id="contact_void" method='post'> 
         <div class="mb-3">
-            <label for="player_name" class="form-label">Player Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Player Name">
+            <!-- <label for="player_name" class="form-label">Player Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Player Name"> -->
+            <p class="text-center fs-3"><?=$_SESSION['login']?></p>
         </div>
         <div class="mb-3">
             <label for="message" class="form-label">Message</label>
@@ -20,12 +21,12 @@
 <script>
 $("#contact_void").submit(function(e){
     e.preventDefault();
-    if($("#name").val() == '') alert("Please type the Player name.");
-    else if($('#message').val() == '') alert("You can't send empty message.");
+    // if($("#name").val() == '') alert("Please type the Player name.");
+    if($('#message').val() == '') alert("You can't send empty message.");
     else {   
         $.ajax({
             type: "POST",
-            url: "pages/gameinfo/contact_void.php",
+            url: "pages/gameinfo/ajax.php",
             data: $(this).serialize(),
         }).then(
             function(response){
@@ -35,7 +36,7 @@ $("#contact_void").submit(function(e){
                 } else {
                     $(".feedback-error").html(jsonData.message);
                 }
-                $('#name').val('');
+                // $('#name').val('');
                 $('#message').val('');
             }
         );

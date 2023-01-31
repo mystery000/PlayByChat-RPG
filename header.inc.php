@@ -21,14 +21,20 @@ gdrcd_controllo_sessione();
     <link rel="stylesheet" href="themes/advanced/chat.css" type="text/css" />
     <link rel="stylesheet" href="themes/advanced/main.css" type="text/css" />
     <title>
-        <?php echo $PARAMETERS['info']['site_name']; ?>
+      <?php echo $PARAMETERS['info']['site_name']; ?>
     </title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body class="main"> 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <div class="container-fluid d-flex justify-content-">  
+    <?php 
+      if($_SESSION['admin']) {
+        echo "<a class='navbar-brand' href='main.php?page=admin&content=admin'>Admin</a>";
+      }
+    ?>   
     <a class="navbar-brand" href="mappa.php?page=mappo&map_id=<?= $_SESSION['map'] ?>">Go to Map</a>
     <a class="navbar-brand" href="main.php?page=gameinfo&content=character_sheet">Character Sheet</a>
     <a class="navbar-brand" href="main.php?page=gameinfo&content=online_players">Online Players</a>

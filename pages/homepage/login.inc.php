@@ -34,6 +34,7 @@
                         if(!empty($record) && gdrcd_password_check($password, $record['password'])) {
                             $_SESSION['login'] = gdrcd_filter_in($record['name']);
                             $_SESSION['allow'] = gdrcd_filter_in($record['allow']);
+                            $_SESSION['admin'] = gdrcd_filter_in($record['admin']);
                             $_SESSION['timeout'] = time();
                             $sql = "UPDATE characters SET online_status=1 WHERE name='{$_SESSION['login']}'";
                             gdrcd_query($sql);

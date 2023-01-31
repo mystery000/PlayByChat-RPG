@@ -16,6 +16,35 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`gdrcd_test` /*!40100 DEFAULT CHARACTER 
 
 USE `gdrcd_test`;
 
+/*Table structure for table `admin_messages` */
+
+DROP TABLE IF EXISTS `admin_messages`;
+
+CREATE TABLE `admin_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sender` varchar(255) DEFAULT NULL,
+  `messages` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `admin_messages` */
+
+insert  into `admin_messages`(`id`,`sender`,`messages`) values 
+(1,'arthlo',' I need permission to enter to chat and forum pages.'),
+(2,'arthlo','some text'),
+(3,'name','Some text'),
+(4,'name','Some text'),
+(5,'name','Some text'),
+(6,'Vuoto','How are you? Vuoto'),
+(7,'Vuoto','asdfasdfasdfasdf'),
+(8,'Vuoto','asdfasdfasdf'),
+(9,'Vuoto','adsfafsadfasdf'),
+(10,'Naruto','Could you please give me a permission to enter Chat and Forum pages? Thanks'),
+(11,'Vuoto','Hello, how are you?'),
+(12,'Vuoto','asdfaskdjfjklasdfasd\r\nfsadfasd\r\nfasdfasdfasdgf safadsfasdfadsfads'),
+(13,'Vuoto','asdfaskdjfjklasdfasd\r\nfsadfasd\r\nfasdfasdfasdgf safadsfasdfadsfads'),
+(14,'Vuoto','asd fasdfasdf asdf asdfasdf asdf');
+
 /*Table structure for table `characters` */
 
 DROP TABLE IF EXISTS `characters`;
@@ -28,16 +57,21 @@ CREATE TABLE `characters` (
   `latest_map` int(11) DEFAULT 1,
   `last_place` int(11) DEFAULT -1,
   `online_status` tinyint(1) DEFAULT 0,
+  `join_date` datetime DEFAULT current_timestamp(),
+  `race` varchar(255) DEFAULT 'rising',
+  `admin` tinyint(1) DEFAULT 0,
+  `allow` tinyint(1) DEFAULT 0,
+  `memories` text DEFAULT NULL,
+  `dreams` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `characters` */
 
-insert  into `characters`(`id`,`name`,`email`,`password`,`latest_map`,`last_place`,`online_status`) values 
-(1,'arthlo','$P$B11Ix0oLTOrWTiC5nXTbpJlNBPnlR10','$P$BsE218SdSwFj/f5wM/4zHcFk1dHwKH/',1,1,1),
-(5,'dene','$P$BVDhi8CMynuBsogOxwke2Fr4A33Hlw/','$P$B82sgslcL2tMFK.T3685oLfmUSKnCI1',1,-1,0),
-(6,'Rasheed','$P$BVeheZs6iFoeS.qCVOn9CcUTMaRUGa1','$P$BsE218SdSwFj/f5wM/4zHcFk1dHwKH/',1,2,0),
-(7,'demo','$P$BiciAmao0qER5N1gyvT8pxsTHgvNT70','$P$BIbXF3xNOhWZRf/tHLUYPANY..lkZN/',1,2,1);
+insert  into `characters`(`id`,`name`,`email`,`password`,`latest_map`,`last_place`,`online_status`,`join_date`,`race`,`admin`,`allow`,`memories`,`dreams`) values 
+(17,'Vuoto','$P$BGmfxwsfulEVrXUN2PB8aCAF39Yd031','$P$BxYG/hPmRKG.xweAg/0vpnnWvAoTAq.',1,-1,1,'2023-01-30 18:45:15','rising',1,1,'aadsfasdfasdifasdfakjsdhfjklasdhfljkashdlfjkahsldkjfhalsdkjfhalskjdfhlajksdfhlkjasdhflkjasdhfljkahsd','My dreams and memories.'),
+(21,'Naruto','$P$BolCnuAgGO7GPh5lh0kgte6435IAdD1','$P$BEyxM15itSIJboJ8AflKYugETMHdxH.',1,-1,0,'2023-01-31 07:54:02','rising',0,1,'asdfadfad','My memories'),
+(22,'dene','$P$BRPDYeNrG6DJ.s7kusu0rOZdkWH5ah0','$P$BEyxM15itSIJboJ8AflKYugETMHdxH.',1,-1,0,'2023-01-31 17:00:19','rising',0,0,NULL,NULL);
 
 /*Table structure for table `chat` */
 
@@ -51,7 +85,7 @@ CREATE TABLE `chat` (
   `text` text NOT NULL,
   `now` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `chat` */
 
@@ -121,7 +155,79 @@ insert  into `chat`(`id`,`room_id`,`sender`,`recipient`,`text`,`now`) values
 (63,2,'arthlo','','asdfadsfasdfasdf','2023-01-25 07:33:54'),
 (64,2,'arthlo','','asdfklajsd;fkljasd;klfjaskljfdaklsdfj','2023-01-25 07:33:57'),
 (65,2,'arthlo','','asdfkjakdfja;lskdfja;klsdfjak;sldfjaklsdjfklajd','2023-01-25 07:34:00'),
-(66,1,'arthlo','','afasfasdfasdfasd','2023-01-25 07:40:21');
+(66,1,'arthlo','','afasfasdfasdfasd','2023-01-25 07:40:21'),
+(67,2,'arthlo','','fasdjfkhasjkdfhkajsdhflsajdkf','2023-01-25 11:37:49'),
+(68,2,'arthlo','','asdfasdfasdfasd','2023-01-25 11:37:51'),
+(69,3,'arthlo','','asdfasdfasdf','2023-01-25 15:58:43'),
+(70,3,'arthlo','','asdfasdfsa','2023-01-25 15:58:45'),
+(71,3,'arthlo','','asdfasdfsa','2023-01-25 15:58:47'),
+(72,3,'arthlo','','asdfasdf','2023-01-25 15:58:49'),
+(73,3,'arthlo','','adfs','2023-01-25 15:58:52'),
+(74,3,'arthlo','','a','2023-01-25 15:58:54'),
+(75,2,'arthlo','','asdfasdf','2023-01-25 15:58:58'),
+(76,2,'arthlo','','asdfasdf','2023-01-25 15:59:11'),
+(77,2,'arthlo','','asdf','2023-01-25 15:59:13'),
+(78,2,'arthlo','','a','2023-01-25 15:59:15'),
+(79,2,'arthlo','','asdfasdf','2023-01-25 16:05:43'),
+(80,2,'arthlo','','asdfasdf','2023-01-25 16:06:33'),
+(81,2,'arthlo','','asdfasdf','2023-01-25 16:07:58'),
+(82,2,'arthlo','','asdfasdf','2023-01-25 16:08:09'),
+(83,2,'arthlo','','a','2023-01-25 16:08:15'),
+(84,2,'arthlo','','a','2023-01-25 16:08:17'),
+(85,2,'arthlo','','a','2023-01-25 16:09:05'),
+(86,2,'arthlo','','a','2023-01-25 16:14:59'),
+(87,2,'arthlo','','dsadf','2023-01-25 16:15:01'),
+(88,2,'arthlo','','asdfasdf','2023-01-25 16:15:12'),
+(89,2,'arthlo','','asdfasdfasd','2023-01-25 16:15:14'),
+(90,2,'arthlo','','xcvbxcvbxcvbxvcb','2023-01-25 16:15:16'),
+(91,1,'arthlo','','asdfasdfa','2023-01-25 16:15:25'),
+(92,3,'arthlo','','xcvbxcjvkjdskfljasd','2023-01-25 16:15:29'),
+(93,3,'arthlo','','asdfasdf','2023-01-25 16:15:31'),
+(94,3,'arthlo','','asdfasdf','2023-01-25 16:15:47'),
+(95,3,'arthlo','','asdfasdfsadf','2023-01-25 16:15:50'),
+(96,3,'arthlo','','a','2023-01-25 16:15:53'),
+(97,3,'arthlo','','a','2023-01-25 16:16:34'),
+(98,3,'arthlo','','asdfkljasdfjasjdfkasdf','2023-01-25 16:20:21'),
+(99,3,'arthlo','','asdfadsf','2023-01-25 16:20:23'),
+(100,3,'arthlo','','asdfadsf','2023-01-25 16:31:15'),
+(101,3,'arthlo','','I can\'t see','2023-01-25 16:31:22'),
+(102,2,'arthlo','','I can\'t see','2023-01-25 16:32:06'),
+(103,2,'Vuoto','','Hello, how are you?','2023-01-30 10:32:41'),
+(104,2,'Vuoto','','Long time no can see.','2023-01-30 10:32:53'),
+(105,2,'Vuoto','','Long time no can see.','2023-01-30 10:38:45'),
+(106,2,'Vuoto','','asdfasdfasdf','2023-01-30 10:38:49'),
+(107,2,'Vuoto','','asdfsadfasdf','2023-01-30 10:40:05'),
+(108,2,'Vuoto','','asdfasdfkjasdklfjsa;dklfja;skdlf','2023-01-30 10:40:11'),
+(109,2,'Vuoto','','asdfasdfkjasdklfjsa;dklfja;skdlf','2023-01-30 10:40:23'),
+(110,2,'Vuoto','','asdfasdfkjasdklfjsa;dklfja;skdlf','2023-01-30 10:40:29'),
+(111,2,'Vuoto','','asdfasdfkjasdklfjsa;dklfja;skdlf','2023-01-30 10:40:33'),
+(112,2,'Vuoto','','asdfasdflkjasdfkl','2023-01-30 10:40:35'),
+(113,2,'Vuoto','','asdfasdfjasdfkjasdfjsadlkfjasdf','2023-01-30 10:40:41'),
+(114,2,'Vuoto','','asdfasdfjasdfkjasdfjsadlkfjasdf','2023-01-30 10:40:48'),
+(115,2,'Vuoto','','adsfaksdjflkajsdflkasdf','2023-01-30 10:41:11'),
+(116,2,'Vuoto','','asdflkjasdfkljasdkfl','2023-01-30 10:41:21'),
+(117,2,'Vuoto','','asdfsadf','2023-01-30 10:41:24'),
+(118,2,'Vuoto','','asdfsadf','2023-01-30 10:41:36'),
+(119,2,'Vuoto','','asdfasdf','2023-01-30 10:41:39'),
+(120,2,'Vuoto','','asdfasdf','2023-01-30 10:41:43'),
+(121,2,'Vuoto','','asdfasdf','2023-01-30 10:41:47'),
+(122,2,'Vuoto','','asdfasdfasdfasdfasdfsadf','2023-01-30 10:41:54'),
+(123,2,'Vuoto','','jkla;sdjfkljaskdlfjkl jklasdjf aksdjf kalsdjfkasdf','2023-01-30 10:42:09'),
+(124,2,'Vuoto','','I can\'t help','2023-01-30 10:42:15'),
+(125,2,'Vuoto','','asdfasdklfjaskldf','2023-01-30 11:13:37'),
+(126,2,'Vuoto','','asdfasdf','2023-01-30 11:13:40'),
+(127,2,'Vuoto','','asdfasd','2023-01-30 11:13:42'),
+(128,2,'Vuoto','','zxcvzxcvzxcv','2023-01-30 11:13:46'),
+(129,1,'Vuoto','','aksjdf;klasdjf;lkasdjf;klasdjfk;lajsdf;klasdjf','2023-01-30 11:13:54'),
+(130,1,'Vuoto','','zxcvasdfasdf','2023-01-30 11:13:57'),
+(131,1,'Vuoto','','aa','2023-01-30 11:14:01'),
+(132,1,'Vuoto','','asdf','2023-01-30 11:14:05'),
+(133,1,'Vuoto','','zxcvzxcv','2023-01-30 11:14:08'),
+(134,1,'Vuoto','','zxcv','2023-01-30 11:14:10'),
+(135,1,'Vuoto','','asdfkzjxcvkljzxcklvj','2023-01-30 11:14:19'),
+(136,1,'Vuoto','','asdfasdfasdjfkljxzc vjk','2023-01-30 11:14:27'),
+(137,1,'Vuoto','','adsfads','2023-01-30 11:14:30'),
+(138,1,'Vuoto','','asdfsadkljfksajdfklasdjf','2023-01-30 11:17:55');
 
 /*Table structure for table `mappa` */
 
@@ -167,6 +273,24 @@ insert  into `mappa_room`(`id`,`name`,`description`,`image`,`id_map`,`link_image
 (1,'World of Memories','Via che congiunge la periferia al centro.','standard_luogo.png',1,'standard_mappa.png',60,20,''),
 (2,'World of Dreams','Piccola piazza con panchine ed una fontana al centro.','free-download-this-stunning-alberta-scene-for-your-device-background-image-L-6.jpg',1,'standard_mappa.png',20,20,''),
 (3,'Void','New Description of Void','images.jpg',1,'standard_mappa.png',40,50,'');
+
+/*Table structure for table `users` */
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
+  `trn_date` datetime NOT NULL,
+  `Department` varchar(30) NOT NULL,
+  `pss` varchar(100) NOT NULL,
+  `question` varchar(80) NOT NULL,
+  `answer` varchar(80) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `users` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
