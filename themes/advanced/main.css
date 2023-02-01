@@ -12,3 +12,8 @@
 .contact-void {
     margin: 10%;
 }
+
+.admin-inbox {
+    overflow: auto;
+    height: 50vh;
+}

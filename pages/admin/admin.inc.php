@@ -30,28 +30,30 @@
     </tbody>
     </table>
     <div class="text-center fs-3"> Messages From Players</div>
-    <table class="table table-dark table-hover border-top text-center">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>PlayerName</th>
-        <th>Message</th>
-      </tr>
-    </thead>
-    <tbody>
-        <?php 
-            $sql = "SELECT * FROM admin_messages";
-            $msgs = gdrcd_query($sql, "result");
-            while($msg = gdrcd_query($msgs, "fetch")) {
-                echo "<tr>";
-                echo "<td>{$msg['id']}</td>";
-                echo "<td>{$msg['sender']}</td>";
-                echo "<td>{$msg['messages']}</td>";
-                echo "</tr>";
-            }
-        ?>
-    </tbody>
-  </table>
+    <div class='admin-inbox'>
+      <table class="table table-dark table-hover border-top text-center">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>PlayerName</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody>
+          <?php 
+              $sql = "SELECT * FROM admin_messages";
+              $msgs = gdrcd_query($sql, "result");
+              while($msg = gdrcd_query($msgs, "fetch")) {
+                  echo "<tr>";
+                  echo "<td>{$msg['id']}</td>";
+                  echo "<td>{$msg['sender']}</td>";
+                  echo "<td>{$msg['messages']}</td>";
+                  echo "</tr>";
+              }
+          ?>
+      </tbody>
+      </table>
+    </div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

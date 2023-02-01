@@ -12,15 +12,7 @@
 
 <div class="chat-room">
     <div class="d-flex h-100">
-        <div class="p-2 flex-fill w-25 room-info-left">
-            <div class="image">
-                <img src="imgs/locations/<?= $info['image'] ?>" alt="No Image" class="w-100"/>
-            </div>
-            <div class="description p-3 fs-4">
-                <p><?= $info['description'] ?></p>
-            </div>
-        </div>
-        <div class="p-2 flex-fill w-50 border-start border-end border-4 main-content">
+        <div class="p-2 flex-fill w-50 border-start border-end border-4 main-content text-center">
             <div class='overflow-auto inbox' id="div-scroll">
                 <?php 
                     $sql = "SELECT chat.sender, chat.recipient, chat.text, chat.now FROM chat WHERE room_id={$room}";
@@ -37,19 +29,7 @@
                 </div>
             </form>
         </div>
-        <div class="p-2 flex-fill w-25 room-info-right">
-            <p class="text-center fs-3">Players in Chat</p>
-            <ul>
-                <?php 
-                    while($row = gdrcd_query($result, 'fetch')) {
-                        $online_status_image = "";
-                        if($row['online_status']) $online_status_image = "<img src='imgs/icons/disponibile1.png'>";
-                        else $online_status_image = "<img src='imgs/icons/disponibile0.png'>";
-                        echo "<div class='fs-5'><span>{$online_status_image}</span><span class='p-2'>{$row['name']}</span></div>";                    
-                    }
-                ?>
-            </ul>
-        </div>
+        <!--  -->
     </div>
 
 </div>

@@ -16,8 +16,9 @@ if(isset($_POST['playerId']) && isset($_POST['playerRace']) && isset($_POST['pla
     echo json_encode(array('success' => 1, 'message' => [$playerId, $playerRace, $playerDream, $playerAllow]));
 }
 else if(isset($_POST['txtMemo']) && $_POST['txtMemo']) {
+    $memo_id = gdrcd_filter('in', $_POST['memo_id']);
     $memories = gdrcd_filter('in', $_POST['txtMemo']);
-    $sql = "UPDATE characters SET memories='{$memories}' WHERE name='{$_SESSION['login']}'";
+    $sql = "UPDATE memories SET memories='{$memories}' WHERE id='{$memo_id}'";
     gdrcd_query($sql);
     echo json_encode(array('success' => 1, 'message' => $memories));
 }

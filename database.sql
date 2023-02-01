@@ -69,9 +69,9 @@ CREATE TABLE `characters` (
 /*Data for the table `characters` */
 
 insert  into `characters`(`id`,`name`,`email`,`password`,`latest_map`,`last_place`,`online_status`,`join_date`,`race`,`admin`,`allow`,`memories`,`dreams`) values 
-(17,'Vuoto','$P$BGmfxwsfulEVrXUN2PB8aCAF39Yd031','$P$BxYG/hPmRKG.xweAg/0vpnnWvAoTAq.',1,-1,1,'2023-01-30 18:45:15','rising',1,1,'aadsfasdfasdifasdfakjsdhfjklasdhfljkashdlfjkahsldkjfhalsdkjfhalskjdfhlajksdfhlkjasdhflkjasdhfljkahsd','My dreams and memories.'),
+(17,'Vuoto','$P$BGmfxwsfulEVrXUN2PB8aCAF39Yd031','$P$BxYG/hPmRKG.xweAg/0vpnnWvAoTAq.',1,3,1,'2023-01-30 18:45:15','rising',1,1,'My memories','My dreams and memories.'),
 (21,'Naruto','$P$BolCnuAgGO7GPh5lh0kgte6435IAdD1','$P$BEyxM15itSIJboJ8AflKYugETMHdxH.',1,-1,0,'2023-01-31 07:54:02','rising',0,1,'asdfadfad','My memories'),
-(22,'dene','$P$BRPDYeNrG6DJ.s7kusu0rOZdkWH5ah0','$P$BEyxM15itSIJboJ8AflKYugETMHdxH.',1,-1,0,'2023-01-31 17:00:19','rising',0,0,NULL,NULL);
+(22,'dene','$P$BRPDYeNrG6DJ.s7kusu0rOZdkWH5ah0','$P$BEyxM15itSIJboJ8AflKYugETMHdxH.',1,-1,0,'2023-01-31 17:00:19','Dead',0,1,NULL,'His dream is done');
 
 /*Table structure for table `chat` */
 
@@ -85,7 +85,7 @@ CREATE TABLE `chat` (
   `text` text NOT NULL,
   `now` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=139 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=149 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `chat` */
 
@@ -227,7 +227,17 @@ insert  into `chat`(`id`,`room_id`,`sender`,`recipient`,`text`,`now`) values
 (135,1,'Vuoto','','asdfkzjxcvkljzxcklvj','2023-01-30 11:14:19'),
 (136,1,'Vuoto','','asdfasdfasdjfkljxzc vjk','2023-01-30 11:14:27'),
 (137,1,'Vuoto','','adsfads','2023-01-30 11:14:30'),
-(138,1,'Vuoto','','asdfsadkljfksajdfklasdjf','2023-01-30 11:17:55');
+(138,1,'Vuoto','','asdfsadkljfksajdfklasdjf','2023-01-30 11:17:55'),
+(139,2,'Vuoto','','askldfjlk;sadjf;klsadjf;kldjsf;skdaf','2023-01-31 22:57:49'),
+(140,2,'Vuoto','','askldfjlk;sadjf;klsadjf;kldjsf;skdaf','2023-01-31 22:57:59'),
+(141,2,'Vuoto','','askldfjlk;sadjf;klsadjf;kldjsf;skdaf','2023-01-31 22:58:09'),
+(142,2,'Vuoto','','askldfjlk;sadjf;klsadjf;kldjsf;skdaf','2023-01-31 22:58:11'),
+(143,2,'Vuoto','','askldfjlk;sadjf;klsadjf;kldjsf;skdaf','2023-01-31 22:58:30'),
+(144,3,'Vuoto','','sdafasdf','2023-02-01 08:21:00'),
+(145,3,'Vuoto','','sdafasdf','2023-02-01 08:21:25'),
+(146,3,'Vuoto','','safasdfasdf','2023-02-01 08:21:45'),
+(147,3,'Vuoto','','safasdfasdf','2023-02-01 08:22:01'),
+(148,3,'Vuoto','','safasdfasdf','2023-02-01 08:22:14');
 
 /*Table structure for table `mappa` */
 
