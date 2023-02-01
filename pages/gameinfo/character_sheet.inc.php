@@ -118,7 +118,7 @@
     });
     function editMemories(memo_id) {
         $("#memo_id").val(memo_id);
-        var text = $("#memo_"+memo_id).html();
+        var text = $("#memo_"+memo_id).text();
         $(".txtMemo").val(text);
         $("#exampleModal").modal('show');
     }
