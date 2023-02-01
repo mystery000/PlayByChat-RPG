@@ -25,7 +25,7 @@ CREATE TABLE `admin_messages` (
   `sender` varchar(255) DEFAULT NULL,
   `messages` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `admin_messages` */
 
@@ -43,7 +43,11 @@ insert  into `admin_messages`(`id`,`sender`,`messages`) values
 (11,'Vuoto','Hello, how are you?'),
 (12,'Vuoto','asdfaskdjfjklasdfasd\r\nfsadfasd\r\nfasdfasdfasdgf safadsfasdfadsfads'),
 (13,'Vuoto','asdfaskdjfjklasdfasd\r\nfsadfasd\r\nfasdfasdfasdgf safadsfasdfadsfads'),
-(14,'Vuoto','asd fasdfasdf asdf asdfasdf asdf');
+(14,'Vuoto','asd fasdfasdf asdf asdfasdf asdf'),
+(20,'Vuoto','klsadjf;lkasdjf;klasdjf;klasjf;dklasjdf;kljasdf;kljsa;dfklasdfsadf'),
+(21,'Vuoto','asdfasdfasdfasdfasdf'),
+(22,'Vuoto','asdfsadfsdfsadf'),
+(23,'Vuoto','asdfasdfasdfasfd');
 
 /*Table structure for table `characters` */
 
@@ -61,17 +65,16 @@ CREATE TABLE `characters` (
   `race` varchar(255) DEFAULT 'rising',
   `admin` tinyint(1) DEFAULT 0,
   `allow` tinyint(1) DEFAULT 0,
-  `memories` text DEFAULT NULL,
   `dreams` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `characters` */
 
-insert  into `characters`(`id`,`name`,`email`,`password`,`latest_map`,`last_place`,`online_status`,`join_date`,`race`,`admin`,`allow`,`memories`,`dreams`) values 
-(17,'Vuoto','$P$BGmfxwsfulEVrXUN2PB8aCAF39Yd031','$P$BxYG/hPmRKG.xweAg/0vpnnWvAoTAq.',1,3,1,'2023-01-30 18:45:15','rising',1,1,'My memories','My dreams and memories.'),
-(21,'Naruto','$P$BolCnuAgGO7GPh5lh0kgte6435IAdD1','$P$BEyxM15itSIJboJ8AflKYugETMHdxH.',1,-1,0,'2023-01-31 07:54:02','rising',0,1,'asdfadfad','My memories'),
-(22,'dene','$P$BRPDYeNrG6DJ.s7kusu0rOZdkWH5ah0','$P$BEyxM15itSIJboJ8AflKYugETMHdxH.',1,-1,0,'2023-01-31 17:00:19','Dead',0,1,NULL,'His dream is done');
+insert  into `characters`(`id`,`name`,`email`,`password`,`latest_map`,`last_place`,`online_status`,`join_date`,`race`,`admin`,`allow`,`dreams`) values 
+(17,'Vuoto','$P$BGmfxwsfulEVrXUN2PB8aCAF39Yd031','$P$BxYG/hPmRKG.xweAg/0vpnnWvAoTAq.',1,-1,1,'2023-01-30 18:45:15','rising',1,1,'My dreams and memories.'),
+(21,'Naruto','$P$BolCnuAgGO7GPh5lh0kgte6435IAdD1','$P$BEyxM15itSIJboJ8AflKYugETMHdxH.',1,-1,0,'2023-01-31 07:54:02','rising',0,1,'My memories'),
+(22,'dene','$P$BRPDYeNrG6DJ.s7kusu0rOZdkWH5ah0','$P$BEyxM15itSIJboJ8AflKYugETMHdxH.',1,-1,0,'2023-01-31 17:00:19','Dead',0,1,'His dream is done');
 
 /*Table structure for table `chat` */
 
@@ -283,6 +286,30 @@ insert  into `mappa_room`(`id`,`name`,`description`,`image`,`id_map`,`link_image
 (1,'World of Memories','Via che congiunge la periferia al centro.','standard_luogo.png',1,'standard_mappa.png',60,20,''),
 (2,'World of Dreams','Piccola piazza con panchine ed una fontana al centro.','free-download-this-stunning-alberta-scene-for-your-device-background-image-L-6.jpg',1,'standard_mappa.png',20,20,''),
 (3,'Void','New Description of Void','images.jpg',1,'standard_mappa.png',40,50,'');
+
+/*Table structure for table `memories` */
+
+DROP TABLE IF EXISTS `memories`;
+
+CREATE TABLE `memories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `player_name` varchar(50) NOT NULL,
+  `memories` text DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `memories` */
+
+insert  into `memories`(`id`,`player_name`,`memories`) values 
+(1,'Vuoto','adfkljasdklfjlkjcvznvc,xmnzxcm,vnASDFasdfasdfasdasdfkjaslkdfasdfadsfasdfadsfadfadsf'),
+(2,'Vuoto','asdfasdfzcxvzcxvzasdfcxvzcxvadfsadadsfs'),
+(3,'Naruto','aasdfasdfadsfasdfads'),
+(4,'Vuoto','aaasdfasdkfjasldkfjaslkdfjadsfzcxvzxcv'),
+(5,'Vuoto','asdfasdf'),
+(6,'Vuoto','SADsdadsfasdfASDFA'),
+(7,'Vuoto','ASDFADSFADFASDASDFASDFadsasdfadff'),
+(8,'Vuoto','adsf'),
+(9,'Vuoto','adsfasdfasdfasdf');
 
 /*Table structure for table `users` */
 

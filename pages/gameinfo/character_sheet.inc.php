@@ -41,13 +41,11 @@
                 echo "<div class='border d-inline-block m-1' onclick='editMemories({$row['id']})' id='memo_{$row['id']}' >{$row['memories']}</div><br>";
             }
             echo "</p>
-                  <button type='button' class='btn btn-success'>+</button>
+                  <button type='button' class='btn btn-success' id='addMemo'>+</button>
                   <p> Ricordi e Sogni: {$dreams}  </p>                
                 </div>";         
         }
     ?>
-    <button type='button' class='btn btn-outline-dark px-4 editMemo' data-bs-toggle='modal' data-bs-target='#exampleModal'>Edit</button>
-    
 </div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -73,7 +71,51 @@
     </div>
   </div>
 </div>
+<div class="modal fade" id="addMemoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Private</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="frm_addMemo" method='post'> 
+            <div class="form-group">
+                <label for="memories">Memories:</label>
+                <textarea class="form-control addMemoText" rows="5" id="memories" maxlength=100 name='addMemoText' id='addMemoText'></textarea>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" form='frm_addMemo'>Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 <script>
+    $("#addMemo").click(function(e) {
+        $("#addMemoModal").modal('show');
+    });
+    $("#frm_addMemo").submit(function(e) {
+        e.preventDefault();
+        if($(".addMemoText").val() == '') alert("You can't save the empty memories.");
+        else {
+            $.ajax({
+                type: 'POST',
+                url: 'pages/gameinfo/ajax.php',
+                data: $(this).serialize(),
+                success: function(response) {
+                    var jsonData = JSON.parse(response);
+                    if (jsonData.success == "1") {
+                    } else {
+
+                    }
+                }
+            });
+        }
+        bootstrap.Modal.getInstance($('#addMemoModal')).hide();
+    });
     function editMemories(memo_id) {
         $("#memo_id").val(memo_id);
         var text = $("#memo_"+memo_id).html();

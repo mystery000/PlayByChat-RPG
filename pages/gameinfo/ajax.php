@@ -3,8 +3,14 @@
 require_once('../../includes/required.php');
 //Eseguo la connessione al database
 $handleDBConnection = gdrcd_connect();
-
-if(isset($_POST['playerId']) && isset($_POST['playerRace']) && isset($_POST['playerDream'])) {
+if(isset($_POST['addMemoText']) && $_POST['addMemoText']) {
+    $player_name = $_SESSION['login'];
+    $memo = gdrcd_filter('in', $_POST['addMemoText']);
+    $sql = "INSERT INTO memories(player_name, memories) VALUES('{$player_name}', '$memo')";
+    gdrcd_query($sql);
+    echo json_encode(array('success' => 1));
+}
+else if(isset($_POST['playerId']) && isset($_POST['playerRace']) && isset($_POST['playerDream'])) {
     $playerId = gdrcd_filter('in', $_POST['playerId']);
     $playerRace = gdrcd_filter('in', $_POST['playerRace']);
     $playerDream = gdrcd_filter('in', $_POST['playerDream']);
