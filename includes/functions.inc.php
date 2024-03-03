@@ -953,9 +953,9 @@ function gdrcd_brute_debug($args)
 function gdrcd_send_email($to, $subject, $content) {
     $url = 'https://api.sendgrid.com/';
     $headr = array();
-    $headr[] = 'Authorization: Bearer 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';
+    $headr[] = 'Authorization: Bearer SendGrid_KEY';
     $user = 'esperimento.staff@gmail.com';
-    $pass = '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';
+    $pass = 'SendGrid_KEY';
 
     $params = array(
             'api_user' => $user,
